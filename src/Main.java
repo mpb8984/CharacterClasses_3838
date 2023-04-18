@@ -22,10 +22,17 @@ public class Main {
         System.out.println("----------------------------");
         System.out.println("Warrior vs Dummy");
         Random random = new Random();
-        while(dummy.getHealth() > 0)
+        while(dummy.getHealth() > 0 && warrior.getHealth() > 0)
         {
+            if(warrior.getHealth() <= 0) break;
+            System.out.println("\nWarrior's Turn:");
             int attack = warrior.attack(random.nextInt(1,20));
             dummy.setHealth(dummy.getHealth() + attack);
+
+            if(dummy.getHealth() <= 0) break;
+            System.out.println("\nDummy's Turn:");
+            attack = dummy.attack(random.nextInt(1,20));
+            warrior.setHealth(warrior.getHealth() + attack);
         }
 
     }

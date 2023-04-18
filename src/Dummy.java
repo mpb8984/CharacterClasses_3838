@@ -17,7 +17,9 @@ public class Dummy implements Character
 
     @Override
     public int attack(int diceRoll) {
-        return this.attack.getDamagePoints();
+        int attackPoints = this.attack.getDamagePoints() + diceRoll;
+        System.out.println("The dummy uses " + this.attack.getAttackName() + " for " + attackPoints + " damage!");
+        return -attackPoints;
     }
 
     @Override

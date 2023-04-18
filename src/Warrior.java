@@ -34,7 +34,15 @@ public class Warrior implements Character
     @Override
     public void setHealth(int newHealth)
     {
-        this.health = newHealth;
+        if(newHealth <= 0)
+        {
+            this.health = 0;
+            System.out.println("The Warrior has been defeated!");
+        } else
+        {
+            this.health = newHealth;
+            System.out.println("The Warrior's new health is: " + this.health);
+        }
     }
 
     @Override
